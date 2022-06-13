@@ -42,11 +42,8 @@ jobs:
       fail-fast: true
       matrix:
         rust:
-          - stable
-          - beta
           - nightly
-          - 1.41.0
-    steps:
+ì    steps:
       - name: Checkout sources
         uses: actions/checkout@v3
 
