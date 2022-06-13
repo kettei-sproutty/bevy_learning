@@ -11,4 +11,5 @@
 
 ## Tutorial used
 * [Youtube](https://www.youtube.com/watch?v=w7UVSF4lTj0&list=PLT_D88-MTFOMtJPkMvWzTedfUo5W7oiNH&index=1)
-
+* [Cheatbook](https://bevy-cheatbook.github.io/tutorial.html)
+* [Bevy docs](https://bevyengine.org/learn/book/introduction/)
