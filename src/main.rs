@@ -2,6 +2,7 @@ use bevy::{prelude::*, window::*};
 use bevy_inspector_egui::WorldInspectorPlugin;
 mod player;
 mod camera;
+mod menu;
 
 fn main() {
   let window_descriptor = WindowDescriptor {
@@ -21,6 +22,7 @@ fn main() {
     .add_plugins(DefaultPlugins)
     .add_plugin(camera::CameraPlugin)
     .add_plugin(player::PlayerPlugin)
+    .add_plugin(menu::MenuPlugin)
     .add_plugin(WorldInspectorPlugin::new())
     .run()
 }
