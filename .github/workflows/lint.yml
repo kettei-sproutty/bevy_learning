@@ -43,7 +43,7 @@ jobs:
       matrix:
         rust:
           - nightly
-ì    steps:
+    steps:
       - name: Checkout sources
         uses: actions/checkout@v3
 
