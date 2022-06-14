@@ -8,6 +8,8 @@
 
 ## Crates 
 * [Bevy](https://github.com/bevyengine/bevy)
+* [Kayak UI](https://github.com/StarArawn/kayak_ui)
+* [Bevy inspector egui](https://github.com/jakobhellermann/bevy-inspector-egui)
 
 ## Tutorial used
 * [Youtube](https://www.youtube.com/watch?v=w7UVSF4lTj0&list=PLT_D88-MTFOMtJPkMvWzTedfUo5W7oiNH&index=1)
