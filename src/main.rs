@@ -17,8 +17,8 @@ fn main() {
   App::new()
     .insert_resource(clear_color)
     .insert_resource(window_descriptor)
+    .add_plugin(camera::CameraPlugin)
     .add_plugin(player::PlayerPlugin)
-    .add_startup_system(camera::spawn_camera)
     .add_plugins(DefaultPlugins)
     .run()
 }
