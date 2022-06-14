@@ -19,7 +19,7 @@ fn main() {
     .add_startup_system_to_stage(StartupStage::PreStartup, graphics::load_graphics)
     .insert_resource(clear_color)
     .insert_resource(window_descriptor)
-    .add_startup_system(player::spawn_player)
+    .add_plugin(player::PlayerPlugin { speed: 1.0 })
     .add_startup_system(camera::spawn_camera)
     .add_plugins(DefaultPlugins)
     .run()
