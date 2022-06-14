@@ -1,4 +1,5 @@
 use bevy::{prelude::*, window::*};
+use bevy_inspector_egui::WorldInspectorPlugin;
 mod player;
 mod camera;
 
@@ -17,8 +18,9 @@ fn main() {
   App::new()
     .insert_resource(clear_color)
     .insert_resource(window_descriptor)
+    .add_plugins(DefaultPlugins)
     .add_plugin(camera::CameraPlugin)
     .add_plugin(player::PlayerPlugin)
-    .add_plugins(DefaultPlugins)
+    .add_plugin(WorldInspectorPlugin::new())
     .run()
 }
