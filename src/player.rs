@@ -3,7 +3,8 @@ use bevy::{prelude::*, sprite::Rect};
 #[derive(Component)]
 pub struct Player {
   pub speed: f32,
-  pub jump: f32
+  pub jump: f32,
+  pub is_jumping: bool
 }
 
 pub struct PlayerPlugin;
@@ -30,8 +31,10 @@ pub fn player_movement(
 
   if keyboard.pressed(KeyCode::A) {
     player_transform.translation.x -= player.speed * time.delta_seconds();
+    player_transform.rotation = Quat::from_rotation_y(std::f32::consts::PI);
   } else if keyboard.pressed(KeyCode::D) {
     player_transform.translation.x += player.speed * time.delta_seconds();
+    player_transform.rotation = Quat::default();
   } else if keyboard.pressed(KeyCode::Space) {
     player_transform.translation.y += player.speed * player.jump * time.delta_seconds();
   } else if keyboard.pressed(KeyCode::LShift) {
@@ -49,14 +52,20 @@ pub fn spawn_player(
 ) {
   let mut sprite = TextureAtlasSprite::new(graphics.player_index);
 
-  sprite.custom_size = Some(Vec2::splat(0.4));
+  sprite.custom_size = Some(Vec2::splat(0.5));
+
+  let player = Player {
+    speed: 1.0, 
+    jump: 1.0,
+    is_jumping: false
+  };
 
   commands
     .spawn_bundle(SpriteSheetBundle {
       sprite,
       texture_atlas: graphics.texture_atlas.clone(),
       ..Default::default()
-    }).insert(Player { speed: 1.0, jump: 1.0 });
+    }).insert(player);
 
     return ()
 }
@@ -78,7 +87,7 @@ pub fn create_player_graphics(
 
   let player_index = atlas.add_texture(Rect {
     min: Vec2::splat(0.0),
-    max: Vec2::splat(32.0)
+    max: Vec2::splat(64.0)
   });
 
   let texture_atlas = texture_assets.add(atlas);
